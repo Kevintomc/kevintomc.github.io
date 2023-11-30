@@ -260,7 +260,7 @@ section .title::after{
 /* services section styling */
 .services, .teams{
     color:#fff;
-    background: #161616;
+    background: #000000;
 }
 .services .title::before,
 .teams .title::before{
@@ -268,7 +268,7 @@ section .title::after{
 }
 .services .title::after,
 .teams .title::after{
-    background: #232323;
+    background: #000000;
     content: "what i provide";
 }
 .services .serv-content .card{
@@ -475,7 +475,7 @@ section .title::after{
     font-weight: 500;
 }
 .contact .contact-content .info .sub-title{
-    color: #fffbfb;
+    color: #ffffff;
 }
 .contact .right form .fields{
     display: flex;
@@ -518,7 +518,7 @@ section .title::after{
   align-items: center;
 }
 .right form .button-area button{
-  color: #fff;
+  color: #ffffff;
   display: block;
   width: 160px!important;
   height: 45px;
@@ -538,9 +538,9 @@ section .title::after{
 }
 /* footer section styling */
 footer{
-    background: #dcd7d7;
+    background: #000000;
     padding: 15px 23px;
-    color: #e3dfdf;
+    color: #ffffff;
     text-align: center;
 }
 footer span a{
@@ -579,7 +579,7 @@ footer span a:hover{
         width: 100%;
         left: -100%;
         top: 0;
-        background: #141414;
+        background: #000000;
         text-align: center;
         padding-top: 80px;
         transition: all 0.3s ease;
