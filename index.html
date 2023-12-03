@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="scroll-up-btn">
@@ -144,30 +144,52 @@
             </div>
             <div class="column right">
                 <div class="text"><span style="color: rgb(246, 240, 240);">Message me</span></div>
-                <form action="#">
-                    <div class="fields">
-                        <div class="field name">
-                           
-                            <input type="text" placeholder="Name" required>
+                <form 
+                 id="submit-form" 
+                 method="POST" 
+                 action="">
+>                 <div class="fields">
+                  <div class="field name">
+                            <input name="Name" type="text" placeholder="Name" required>
                         </div>
                         <div class="field email">
-                            <input type="email" placeholder="Email" required>
+                            <input name="Email" type="email" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Phone no" required>
+                        <input name="Phone no" type="text" placeholder="Phone no" required>
+                        
                     </div>
                     <div class="field textarea">
-                        <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                        <input name="Message.." type="Message.." placeholder="Message.." required>
                     </div>
                     <div class="button-area">
-                        <button type="submit">Send message</button>
+                        <button type="submit">Send </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbw2GZVp-Yg-uo2An7M1e_7A0dVF0LvHrW0eYzEOxhq_ZZeHtvih3Fk3yD5YvWKV8pA03g/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+</script>
  <!-- footer section start -->
  <footer>
     <span>Created By Kevintomc</a> | <span class="far fa-copyright"></span> 2023 All rights reserved.</span>
