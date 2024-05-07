@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 <body>
     <div class="scroll-up-btn">
@@ -176,23 +177,50 @@
 </section>
 <script>
     $("#submit-form").submit((e)=>{
-        e.preventDefault()
+        e.preventDefault();
+
+        // Show submitting popup
+        Swal.fire({
+            icon: 'info',
+            title: 'Submitting...',
+            showConfirmButton: false,
+            allowOutsideClick: false
+        });
+
         $.ajax({
             url:"https://script.google.com/macros/s/AKfycbw2GZVp-Yg-uo2An7M1e_7A0dVF0LvHrW0eYzEOxhq_ZZeHtvih3Fk3yD5YvWKV8pA03g/exec",
             data:$("#submit-form").serialize(),
             method:"post",
             success:function (response){
-                alert("Form submitted successfully")
-                window.location.reload()
-                //window.location.href="https://google.com"
+                // Hide the "Submitting..." popup
+                Swal.close();
+
+                // Show the "Thanks" popup
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thanks❤️!',
+                    text: 'Form submitted successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    // Reload the page after the "Thanks" popup is closed
+                    window.location.reload();
+                    //window.location.href="https://google.com"
+                });
             },
             error:function (err){
-                alert("Something Error")
-
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!'
+                });
             }
-        })
-    })
+        });
+    });
 </script>
+
+
+
  <!-- footer section start -->
  <!-- Facebook -->
  <center>
