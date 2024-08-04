@@ -298,69 +298,50 @@ section .title::after {
 
 
 
-/* dddd*/
-/* Services section styles */
-.services {
-    padding: 60px 0;
-    background: #f9f9f9;
+/* services section styling */
+.services, .teams{
+    color:#fff;
+    background: #111;
 }
-
-.services .max-width {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.services .title {
-    text-align: center;
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.services .serv-content {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.services .card {
+.services .title::before,
+.teams .title::before{
     background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    width: 45%;
-    /* Adjusted width */
-    margin: 20px;
-    /* Adjusted margin */
+}
+.services .title::after,
+.teams .title::after{
+    background: #111;
+    content: "what i provide";
+}
+.services .serv-content .card{
+    width: calc(33% - 20px);
+    background: #222;
     text-align: center;
+    border-radius: 6px;
+    padding: 50px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-
-.services .card:hover {
-    transform: translateY(-10px);
+.services .serv-content .card:hover{
+    background: crimson;
 }
-
-.services .box {
-    display: block;
-    width: 100%;
-    /* Make sure the box takes full width of the card */
-    height: 300px;
-    /* Adjusted height */
-    text-align: center;
-    color: inherit;
-    text-decoration: none;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px 10px 0 0;
-    box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.2);
+.services .serv-content .card .box{
+    transition: all 0.3s ease;
 }
-
-.services .text {
-    font-size: 18px;
-    font-weight: 600;
-    padding: 10px 0;
-    color: #333;
+.services .serv-content .card:hover .box{
+    transform: scale(1.05);
+}
+.services .serv-content .card i{
+    font-size: 50px;
+    color: crimson;
+    transition: color 0.3s ease;
+}
+.services .serv-content .card:hover i{
+    color: #fff;
+}
+.services .serv-content .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
 }
 
 /* skills section styling */

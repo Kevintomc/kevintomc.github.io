@@ -74,7 +74,7 @@
                    
                       <body>
                         <div>
-                          <a href="https://drive.google.com/file/d/1iLY8PmSC41qyAa0sBNYwS2qEHv06kMxa/view?usp=share_link" class="button">Download Resume</a>
+                          <a href="https://drive.google.com/file/d/11AbvxkhDmfoD7gsWE1OMu__Q7sn95X8-/view?usp=sharing" class="button">Download Resume</a>
                         </div>
                       </body></a>
                 </div>
@@ -83,7 +83,7 @@
     </section>
 
 
-    <!-- Services Section -->
+    <!-- services section start -->
     <section class="services" id="services">
         <div class="max-width">
             <h2 class="title">My services</h2>
@@ -92,28 +92,27 @@
                     <div class="box">
                         <i class="fas fa-paint-brush"></i>
                         <div class="text">Web Design</div>
-                       
+                        <p></p>
                     </div>
                 </div>
-                <div class="card">
+             <!--<div class="card">
                     <div class="box">
                         <i class="fas fa-chart-line"></i>
                         <div class="text">Advertising</div>
-                        
+                        <p></p>
                     </div>
                 </div>
                 <div class="card">
                     <div class="box">
                         <i class="fas fa-code"></i>
                         <div class="text">Apps Design</div>
-                       
+                        <p></p>
                     </div>
-                </div>
+                </div>-->   
                </div>
             </div>
         </div>
     </section>
-
    
 <!-- contact section start -->
 <section class="contact" id="contact">
@@ -142,7 +141,7 @@
                         <i class="fas fa-envelope"></i>
                         <div class="info">
                             <div class="head"><span style="color: rgb(246, 240, 240);">Email</span></div>
-                            <div class="sub-title"><a href="mailto:kevintomc008@gmail.com">Tap Here</a></div>
+                            <div class="sub-title"><a href="mailto:kevintomc008@gmail.com">kevintomc008@gmail.com</a></div>
                         </div>
                     </div>
                 </div>
@@ -177,24 +176,45 @@
     </div>
 </section>
 <script>
-    $("#submit-form").submit((e)=>{
-        e.preventDefault()
-        $.ajax({
-            url:"https://script.google.com/macros/s/AKfycbw2GZVp-Yg-uo2An7M1e_7A0dVF0LvHrW0eYzEOxhq_ZZeHtvih3Fk3yD5YvWKV8pA03g/exec",
-            data:$("#submit-form").serialize(),
-            method:"post",
-            success:function (response){
-                alert("Form submitted successfully")
-                window.location.reload()
-                //window.location.href="https://google.com"
+    $("#submit-form").submit((e) => {
+        e.preventDefault();
+        
+        // Show loading animation
+        Swal.fire({
+            title: 'Submitting...',
+            text: 'Please wait while we submit your form',
+            didOpen: () => {
+                Swal.showLoading();
             },
-            error:function (err){
-                alert("Something Error")
+            allowOutsideClick: false
+        });
 
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbw2GZVp-Yg-uo2An7M1e_7A0dVF0LvHrW0eYzEOxhq_ZZeHtvih3Fk3yD5YvWKV8pA03g/exec",
+            data: $("#submit-form").serialize(),
+            method: "post",
+            success: function(response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Form submitted successfully',
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(() => {
+                    window.location.reload();
+                });
+                // window.location.href="https://google.com"
+            },
+            error: function(err) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something went wrong',
+                    text: 'Please try again later',
+                });
             }
-        })
-    })
+        });
+    });
 </script>
+
  <!-- footer section start -->
  <!-- Facebook -->
  <center>
@@ -210,7 +230,7 @@
 
 
 <!-- Linkedin -->
-<a href="www.linkedin.com/in/kevintomc"><i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;margin-right: 1em"></i></a>
+<a href="https://www.linkedin.com/in/kevintomc"><i class="fab fa-linkedin-in fa-2x" style="color: #0082ca;margin-right: 1em"></i></a>
 
 
 <!-- Github -->
