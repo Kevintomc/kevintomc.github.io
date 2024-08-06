@@ -71,3 +71,10 @@ $(document).ready(function(){
         }
     });
 });
+
+
+
+ // Get the current year
+ const currentYear = new Date().getFullYear();
+ // Set the current year in the footer, appended to 2023
+ document.getElementById('current-year').textContent += currentYear;
